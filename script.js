@@ -3,6 +3,8 @@ import { fetchMeteo } from "./scripts/meteoApi.js"
 import { updateDashboard, updateSuggestions, setUserDashboard } from "./scripts/dashboards.js"
 import { requestLogin, requestLogout, checkLogin, loggedIn } from "./scripts/login.js"
 import { addFavorite, requestUploadPhoto, refreshPhotos } from "./scripts/favorites.js"
+import{refreshTimeOutPhotos} from "./scripts/timeOut.js"
+
 
 let targetLocation = null
 
@@ -17,6 +19,7 @@ window.onload = () => {
     document.querySelector('#uploadPhotoModal').addEventListener('show.bs.modal',uploadPhotoModalShow)
     document.querySelector('.button-upload-photo').addEventListener('click', requestUploadPhoto)
     document.querySelector('.show-photo-button').addEventListener('click', showOffcanvas)
+    document.querySelector('.time-out-button').addEventListener('click', showTimeOutSuggestions)
 
     //Load default data
     let result = setUserDashboard()
@@ -24,6 +27,23 @@ window.onload = () => {
     targetLocation = defaultLocation
     setInterval(refreshDashboard(targetLocation), 5000)
 }
+
+function showTimeOutSuggestions()
+{   
+    event.preventDefault();
+    debugger;
+    console.log("TIME OUT Hola adolf, t' estimo");
+    refreshTimeOutPhotos(targetLocation);
+    
+    let offCanvas = new bootstrap.Offcanvas(document.querySelector('#offcanvasTimeOut'))
+    document.querySelector('#offcanvas-location').innerHTML = targetLocation.name
+    document.querySelector('#offcanvas-lat').innerHTML = targetLocation.lat
+    document.querySelector('#offcanvas-lon').innerHTML = targetLocation.lon
+    offCanvas.show()
+    
+}
+
+
 
 function showOffcanvas(event){
     event.preventDefault() 

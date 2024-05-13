@@ -34,20 +34,22 @@ function updateDashboard(data,location) {
     else{
         document.querySelector('.add-favorite-button').classList.remove("is-favorite")
     }
+    //Globales para el timeOut 
+    document.temperature=data['current']['temperature_2m'];
+    document.weatherCode=data['current']['weather_code'];
 }
 
 function updateVariable(variableSet, variable, value, units) {
     const targetClass = `.ph-${variableSet}-${variable}`
     let elements = document.querySelectorAll(targetClass)
     // console.log(targetClass)
-    
     if (variableSet != "current") { 
         for (let [index, element] of Array.from(elements).entries()) {
             if (variable == "sunrise" || variable == "sunset") {
-                element.innerHTML = value[index].slice(11, 16)
+                element.innerHTML = value[index].slice(11, 16);
             }
             else if(variable == "temperature_2m_max" || variable == "temperature_2m_min"){
-                element.innerHTML = Math.round(parseInt(value[index])) + " " + units
+                element.innerHTML = Math.round(parseInt(value[index])) + " " + units;
             }
             else if (variable == "time") {
                 element.innerHTML = value[index].slice(8, 10) + "/" + value[index].slice(5, 7)

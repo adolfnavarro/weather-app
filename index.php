@@ -40,6 +40,10 @@
                 <button class="current-location-button btn btn-outline-secondary mx-2" type="button">
                     <i class="geoloc-icon bi bi-crosshair"></i>
                 </button>
+                <button class="time-out-button btn btn-outline-secondary mx-2" type="button">
+                    <i class="bi bi-cup-straw"></i>
+                </button>
+                
             </div>
             <div class="d-flex flex-row gap-3 align-items-center">
                 <button class="upload-photo-button btn btn-outline-secondary mx-2" type="button" data-bs-toggle="modal"
@@ -442,6 +446,29 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- OFFCANVAS  Time-->
+        <div class="offcanvas offcanvas-bottom bg-dark h-100" tabindex="-1" id="offcanvasTimeOut"
+            aria-labelledby="offcanvasExampleLabel" data-bs-backdrop="false">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                <button type="button" class="btn-close offcanvas-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body d-flex flex-column align-items-center justify-content-evenly">
+            <!-- Contenido Time out -->
+            <h1 style="color:white">Què fer avui ?</h1>
+            <hr  style="color:white; height:5px; width:60%; margin-top:0px;margin-bottom:2%;">
+            <div class="card" style="width: 25%;">
+            <img id="imgTimeOut"src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 id="titleTimeOut" class="card-title">Card title</h5>
+                <p id="imgDesc" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a id="botonTimeOut"href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            </div>
+            <!-- Contenido Time out -->
             </div>
         </div>
 
